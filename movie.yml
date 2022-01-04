@@ -65,13 +65,13 @@ collections:
   Unsere Top Filme: #1 Auskommentieren, wenn kein Tautuilli vorhanden ist!
     template: { name: Chart, num: a001 }
     tautulli_popular:
-      list_days: 50
-      list_size: 50
-      list_buffer: 50
+      list_days: 30
+      list_size: 30
+      list_buffer: 20
     tautulli_watched:
-      list_days: 50
-      list_size: 50
-      list_buffer: 50
+      list_days: 30
+      list_size: 30
+      list_buffer: 20
     summary: Die beliebtesten Filme auf diesem Server.
   Top Bewertet: #2
     template: { name: Chart, num: a002 }
