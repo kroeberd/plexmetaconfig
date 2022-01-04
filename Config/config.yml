@@ -45,7 +45,7 @@ tautulli:                                       # Can be individually specified 
   url: http://tautuilli:8181
   apikey: ############################
 omdb:
-  apikey: e4700a0f
+  apikey: ########
 trakt:
   client_id: ###################################################################
   client_secret: ##############################################################
