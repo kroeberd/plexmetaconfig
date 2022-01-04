@@ -41,9 +41,6 @@ plex:                                           # Benötigt!
 tmdb:                                           # REQUIRED for the script to run
   apikey: ############################
   language: de
-tautulli:                                       # Can be individually specified per library as well
-  url: http://tautuilli:8181
-  apikey: ############################
 omdb:
   apikey: e4700a0f
 trakt:
