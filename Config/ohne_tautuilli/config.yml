@@ -1,11 +1,10 @@
-## This file is a template remove the .template to use the file
-libraries:                                      # Library mappings must have a colon (:) placed after them
+libraries:                                      # Sollte deine Filme-Mediathek nicht "Filme" heißen, bitte entsprechend umbennen
   Filme:
     metadata_path:
       - url: https://raw.githubusercontent.com/kroeberd/plexmetaconfig/main/movie_ohne_tautuilli.yml
     operations:
       delete_unmanaged_collections: true
-settings:                                       # Can be individually specified per library as well
+settings:                                       # einfach so lassen
   cache: true
   cache_expiration: 60
   asset_directory: config/assets
@@ -38,11 +37,9 @@ plex:                                           # Benötigt!
   clean_bundles: true
   empty_trash: true
   optimize: true
-tmdb:                                           # REQUIRED for the script to run
+tmdb:                                           # Benötigt!
   apikey: ############################
   language: de
-omdb:
-  apikey: ########
-trakt:
+trakt:                                          # Benötigt!
   client_id: ###################################################################
   client_secret: #################################################################
