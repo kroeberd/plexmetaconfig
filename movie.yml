@@ -1,0 +1,213 @@
+#v1.0                           ######################################################
+                                #                Movie Sammlungen                    #
+                                ######################################################
+                                ##                                                  ##
+                                ##       Movie Sammlung YML config fuer             ##
+                                ##              TheGeekFreaks Discord               ##
+                                ## by Sarcasm | Denny | 2022                        ##
+                                ######################################################
+                                ##                                                  ##
+                                ## Benötigt: Trak-Account, TMDB-Account, Tautuilli  ##
+                                ######################################################
+                                ##                                                  ##
+                                ## Sortierung                                       ##
+                                ## - Top                                            ##
+                                ## - - Unsere Top Filme                             ##
+                                ## - - Top Bewertet                                 ##
+                                ## - - Im Trend                                     ##
+                                ## - - Top Popularität                              ## 
+                                ## - - Filme mit Oscars                             ##
+                                ## - - Top Netflix                                  ##
+                                ## - - Top Superheldenfilme                         ##
+                                ## - - Parodiefilme                                 ##
+                                ## - - Weihnachtsfilme                              ##
+                                ##                                                  ##
+                                ## - Die Bbesten des Jahres                         ##
+                                ##                                                  ##
+                                ## - Studio Sammlungen                              ##
+                                ##                                                  ##
+                                ## Changelog ganz unten                             ##
+                                ######################################################
+                                
+###########################
+#        Templates        #
+###########################
+templates:
+    Chart: #1
+        sort_title: 1_<<num>>_<<collection_name>>
+        sync_mode: sync
+        smart_label: random
+        visible_library: false
+        visible_home: true
+        visible_shared: true
+    Beste von: #2
+        trakt_list: https://trakt.tv/users/lish408/lists/rotten-tomatoes-best-of-<<year>>
+        sort_title: 2_Beste von <<year>>
+        sync_mode: sync
+        summary: Beste Filme aus dem Jahr <<year>> (Bewertung durch Rotten Tomatoes)
+        smart_label: audience_rating.desc
+        visible_library: false
+        visible_home: true
+        visible_shared: true
+    Studio: #3
+        plex_search:
+        studio: <<studio>>
+        url_poster: <<poster>>
+        sort_title: 3_<<collection_name>>
+        collection_order: alpha  
+        visible_library: false
+        visible_home: true
+        visible_shared: true        
+collections:
+###########################
+#           Top           #
+###########################
+  Unsere Top Filme: #1 Auskommentieren, wenn kein Tautuilli vorhanden ist!
+    template: { name: Chart, num: a001 }
+    tautulli_popular:
+      list_days: 50
+      list_size: 50
+      list_buffer: 50
+    tautulli_watched:
+      list_days: 50
+      list_size: 50
+      list_buffer: 50
+    summary: Die beliebtesten Filme auf diesem Server.
+  Top Bewertet: #2
+    template: { name: Chart, num: a002 }
+    imdb_list:
+        url: https://www.imdb.com/search/title/?groups=top_250&count=100/
+        limit: 100
+    tmdb_top_rated: 100
+    summary: Hier werden weltweit die besten 100 Filme gelistet. Diese Liste aktualisiert sich täglich. Nicht jeder Film ist vorhanden. Sortiert nach Platz 1 bis 100. Viel Spaß.
+    url_background: https://i.imgur.com/b26VZ9y.jpg
+    url_poster: https://i.imgur.com/x7BhedD.png
+  Im Trend: #3
+    template: { name: Chart, num: a003 }
+    trakt_trending: 10
+    tmdb_trending_daily: 10
+    tmdb_trending_weekly: 10
+    summary: Aktuelle Filme im Trend.
+    url_background: https://i.imgur.com/SOVfrIq.png
+    url_poster: https://i.imgur.com/4vpMZoA.png
+  Top Popularität: #4
+    template: { name: Chart, num: a004 }
+    tmdb_popular: 50
+    imdb_list:
+      url: https://www.imdb.com/search/title/?title_type=feature,tv_movie,documentary,short
+      limit: 50
+    summary: Sortiert nach Popularität
+  Filme mit Oscars: #5
+    template: { name: Chart, num: a005 }
+    imdb_list: https://www.imdb.com/search/title/?title_type=feature,documentary&groups=oscar_winner
+    summary: Filme, welche mindestens einen Oscar gewonnen haben.
+  Top Netflix: #6
+    template: { name: Chart, num: a006 }  
+    summary: Beste Filme, die laut Rotten Tomatoes über Netflix gestreamt werden können.
+    trakt_list: https://trakt.tv/users/hdlists/lists/best-movies-on-netflix
+    collection_order: release
+    collection_mode: default       
+  Top Superheldenfilme: #7
+    template: { name: Chart, num: a007 }
+    summary: Einige der besten Superheldenfilme
+    trakt_list: https://trakt.tv/users/hdlists/lists/best-superhero-movies
+    collection_order: release
+    collection_mode: default           
+  Parodiefilme: #8
+    template: { name: Chart, num: a008 }
+    trakt_list: https://trakt.tv/users/twhiting9275/lists/a-list-of-parody-movies
+    smart_label: critic_rating.desc
+    sort_title: 999999999_
+    summary: Eine Sammlung von Parodiefilmen.
+    url_poster: https://i.imgur.com/yFtJ5eV.png
+    url_background: https://i.imgur.com/eELv4eB.jpg
+  Weihnachtsfilme: #9
+    template: { name: Chart, num: a009 }
+    trakt_list:
+      - https://trakt.tv/users/movistapp/lists/christmas-movies
+      - https://trakt.tv/users/questdvd/lists/absolute-hayes-christmas-classics
+      - https://trakt.tv/users/littlestella3/lists/christmas
+    sync_mode: sync
+    summary: "Weihnachtsfilm ist ein Genre, das sich um die Handlung von Weihnachten dreht."
+    url_poster: https://bit.ly/PlexSeasonChristmas
+    smart_label: audience_rating.desc
+ ###########################
+ # Die besten des Jahres X #
+ ###########################
+  Beste von 2014:
+    template: { name: Beste von, year: 2014 }
+  Beste von 2015:
+    template: { name: Beste von, year: 2015 }
+  Beste von 2016:
+    template: { name: Beste von, year: 2016 }
+  Beste von 2017:
+    template: { name: Beste von, year: 2017 }
+  Beste von 2018:
+    template: { name: Beste von, year: 2018 }
+  Beste von 2019:
+    template: { name: Beste von, year: 2019 }
+  Beste von 2020:
+    template: { name: Beste von, year: 2020 }
+  Beste von 2021:
+    template: { name: Beste von, year: 2021 }
+  Beste von 2022:
+    template: { name: Beste von, year: 2022 }
+###########################
+#   Studio Sammlungen     #
+###########################
+  Aardman:
+    template: {name: Studio, studio: Aardman, poster: https://theposterdb.com/api/assets/26074}
+    summary: Aardman Animations, Ltd. ist ein britisches Animationsstudio mit Sitz in Bristol, England. Aardman ist bekannt für Filme, die mit Stop-Motion-Clay-Animationstechniken gedreht wurden, insbesondere für solche mit den Plastilin-Charakteren Wallace und Gromit.
+  Studio Ghibli:
+    template: {name: Studio, studio: "Studio Ghibli", poster: https://theposterdb.com/api/assets/32223}
+    summary: Studio Ghibli Inc. ist ein japanisches Animationsfilmstudio mit Hauptsitz in Koganei, Tokio. Das Studio ist vor allem für seine animierten Spielfilme bekannt und hat auch mehrere Kurzfilme, Fernsehwerbespots und einen Fernsehfilm produziert. Das Maskottchen und bekannteste Symbol des Studios ist der Charakter Totoro, ein riesiger katzenartiger Geist aus dem Klassiker von 1988, My Neighbor Totoro.
+  DC:
+    trakt_list: 
+      - https://trakt.tv/users/movistapp/lists/dc-comics
+      - https://trakt.tv/users/tetharion/lists/worlds-of-dc
+      - https://trakt.tv/users/littlgrim/lists/dc
+      - https://trakt.tv/users/rkvine82/lists/dc-comic-shows
+      - https://trakt.tv/users/asterlea/lists/dceu
+      - https://trakt.tv/users/donxy/lists/dc-comics-animated
+      - https://trakt.tv/users/donxy/lists/dc-universe-animated-original-movies
+      - https://trakt.tv/users/donxy/lists/dc-animated-series-universe
+    summary: DC Comics ist eine der größten und ältesten amerikanischen Comicbuchfirmen, deren erster Comic unter dem DC-Banner 1937 veröffentlicht wurde. Die meisten seiner Veröffentlichungen finden im fiktiven DC-Universum statt und zeigen zahlreiche kulturell ikonische Heldenfiguren wie Superman , Batman und Wonder Woman. Es ist weithin bekannt für einige der berühmtesten und bekanntesten Teams, darunter die Justice League, die Justice Society of America und die Teen Titans. Das Universum bietet auch eine große Anzahl bekannter Superschurken wie den Joker, Lex Luthor und Darkseid. Das Unternehmen hat nicht mit dem DC-Universum zusammenhängendes Material veröffentlicht, darunter Watchmen, V for Vendetta, Fables und viele Titel unter ihrem alternativen Imprint Vertigo. 
+    url_poster: https://i.imgur.com/Og1sKU1.png
+    sync_mode: sync
+  LEGO:
+    template: { name: Studio, company: 4081 }
+    summary: "Lego Filme."
+    url_poster: https://i.imgur.com/AKe5dJo.png
+  Marvel:
+    trakt_list: 
+      - https://trakt.tv/users/donxy/lists/marvel-cinematic-universe
+      - https://trakt.tv/users/asterlea/lists/marvel-television
+      - https://trakt.tv/users/mediashare2000/lists/marvel-animation
+      - https://trakt.tv/users/signoftheshadow/lists/mcu
+    summary: Das Marvel Cinematic Universe (MCU) ist ein amerikanisches Medien-Franchise und ein gemeinsames Universum, das sich auf eine Reihe von Superheldenfilmen konzentriert, die unabhängig von Marvel Studios produziert wurden und auf Charakteren basieren, die in amerikanischen Comics erscheinen, die von Marvel Comics veröffentlicht wurden. Das Franchise umfasst Comics, Kurzfilme, Fernsehserien und digitale Serien. Das gemeinsame Universum wurde, ähnlich wie das ursprüngliche Marvel-Universum in Comics, durch das Überqueren gemeinsamer Handlungselemente, Einstellungen, Besetzung und Charaktere geschaffen. Der erste MCU-Film ist Iron Man (2008), mit dem die Filme von Phase One begannen und im Crossover-Film The Avengers (2012) gipfelten. Phase 2 begann mit Iron Man 3 (2013) und endete mit Ant-Man (2015). Phase Drei begann mit Captain America – Civil War (2016) und endete mit Spider-Man – Far From Home (2019). Die ersten drei Phasen des Franchise werden zusammen als "The Infinity Saga" bezeichnet. Die Filme von Phase Four beginnen mit Black Widow (2021) und sollen mit Guardians of the Galaxy Vol. 3 (2023).
+    url_poster: https://i.imgur.com/T7Q4oTO.png
+    sync_mode: sync 
+  Blue Sky Animation:
+    template: {name: Studio, studio: "Blue Sky Animation", poster: https://theposterdb.com/poster/33753}
+    summary: Blue Sky Studios, Inc. ist ein amerikanisches Computeranimationsfilmstudio mit Sitz in Greenwich, Connecticut. Es ist eine Tochtergesellschaft von 20th Century Animation, einer Abteilung von Disney Studios Content.
+  DreamWorks:
+    template: {name: Studio, studio: "DreamWorks Animation, DreamWorks Pictures", poster: https://theposterdb.com/api/assets/52723}
+    summary: DreamWorks Animation LLC (auch einfach als DreamWorks bekannt) ist ein amerikanisches Animationsstudio und eine Tochtergesellschaft von Universal Pictures, selbst eine Tochtergesellschaft von Comcasts NBCUniversal. Es hat seinen Sitz in Glendale, Kalifornien, und produziert animierte Spielfilme, Fernsehprogramme und virtuelle Online-Spiele.
+  Illumination Entertainment:
+    template: {name: Studio, studio: "Illumination Entertainment", poster: https://theposterdb.com/api/assets/8158}
+    summary: Illumination ist ein amerikanisches Film- und Animationsstudio, das 2007 von Chris Meledandri gegründet wurde und sich im Besitz von Universal Pictures befindet, einer Abteilung von NBCUniversal, die selbst eine Abteilung von Comcast ist. Meledandri produziert die Filme, während Universal alle Filme finanziert und vertreibt. Das Studio ist verantwortlich für die Franchises Despicable Me und The Secret Life of Pets sowie die Verfilmungen der Bücher The Lorax und How the Grinch Stole Christmas von Dr. Seuss. Die Minions, Charaktere aus der Despicable Me-Serie, sind die Maskottchen des Studios.
+  Pixar:
+    template: {name: Studio, studio: Pixar, poster: https://theposterdb.com/api/assets/38226}
+    summary: Pixar Animation Studios, allgemein bekannt als Pixar, ist ein amerikanisches Computeranimationsstudio mit Sitz in Emeryville, Kalifornien, einer Tochtergesellschaft von Disney Studios Content im Besitz der Walt Disney Company. Pixar begann 1979 als Teil der Lucasfilm-Computerabteilung, bekannt als Graphics Group, bevor es am 3. Februar 1986 als Unternehmen ausgegliedert wurde, mit Finanzierung von Apple-Mitbegründer Steve Jobs, der deren Mehrheitsaktionär wurde. Disney kaufte Pixar im Jahr 2006 zu einem Wert von 7,4 Milliarden US-Dollar durch die Umwandlung jeder Pixar-Aktie in 2,3 Disney-Aktien, eine Transaktion, die dazu führte, dass Jobs damals der größte Einzelaktionär von Disney wurde. Pixar ist vor allem für seine Spielfilme bekannt, die technologisch von RenderMan unterstützt werden, der unternehmenseigenen Implementierung der branchenüblichen RenderMan Interface Specification zur Bildwiedergabe-Anwendungsprogrammierschnittstelle. Luxo Jr., eine Schreibtischlampe aus dem gleichnamigen Kurzfilm des Studios von 1986, ist das Maskottchen des Studios.
+  Sony Pictures Animation:
+    template: {name: Studio, studio: "Sony Pictures, Sony Pictures Television", poster: https://theposterdb.com/api/assets/131749}
+    summary: Sony Pictures Animation Inc. ist ein amerikanisches Animationsstudio, das sich im Besitz von Sony Pictures Entertainment über deren Motion Picture Group-Abteilung befindet und am 9. Mai 2002 gegründet wurde. Die Filme des Studios werden weltweit von Sony Pictures Releasing unter ihrem Label Columbia Pictures vertrieben, während sie alle direkt -to-Video-Veröffentlichungen werden von Sony Pictures Home Entertainment veröffentlicht.
+  Walt Disney Animation Studios:
+    template: {name: Studio, studio: "Walt Disney Animation Studios", poster: https://theposterdb.com/api/assets/6016}
+    summary: Walt Disney Animation Studios (WDAS), manchmal abgekürzt als Disney Animation, ist ein amerikanisches Animationsstudio, das animierte Spielfilme und Kurzfilme für The Walt Disney Company erstellt. Es wurde am 16. Oktober 1923 von den Brüdern Walt Disney und Roy O. Disney gegründet und ist eines der ältesten Animationsstudios der Welt. Es ist derzeit als eine Abteilung der Walt Disney Studios organisiert und hat seinen Hauptsitz im Roy E. Disney Animation Building auf dem Grundstück der Walt Disney Studios in Burbank, Kalifornien.
+  Walt Disney Pictures:
+    template: {name: Studio, studio: "Walt Disney Pictures", poster: https://theposterdb.com/api/assets/16549}
+    summary: Walt Disney Pictures ist ein US-amerikanisches Filmproduktionsstudio der Walt Disney Studios, das sich im Besitz der Walt Disney Company befindet. Das Studio ist der Flaggschiff-Produzent von Live-Action-Spielfilmen innerhalb der Walt Disney Studios-Einheit und hat seinen Sitz in den Walt Disney Studios in Burbank, Kalifornien. Unter dieser Marke werden auch Animationsfilme veröffentlicht, die von Walt Disney Animation Studios und Pixar Animation Studios produziert werden. Walt Disney Studios Motion Pictures vertreibt und vermarktet die von Walt Disney Pictures produzierten Filme.
+  Warner Bros.:
+    template: {name: Studio, studio: "Warner Animation Group, Warner Bros., Warner Bros. Animation, Warner Bros. Pictures, Warner Independent Pictures (WIP)", poster: https://theposterdb.com/api/assets/47604}
+    summary: Warner Bros. ist das drittälteste amerikanische Filmstudio im Dauerbetrieb, nachdem Paramount Pictures am 8. Mai 1912 als Famous Players Film Corporation gegründet wurde und die Universal Studios am 8. Juni 1912 gegründet wurden. Warner Bros. wurde am 4. April 1923 gegründet .
