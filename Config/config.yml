@@ -2,7 +2,7 @@
 libraries:                                      # Library mappings must have a colon (:) placed after them
   Filme:
     metadata_path:
-      - file: config/movie.yml
+      - file: https://raw.githubusercontent.com/kroeberd/plexmetaconfig/main/Config/config.yml
     operations:
       delete_unmanaged_collections: true
 settings:                                       # Can be individually specified per library as well
