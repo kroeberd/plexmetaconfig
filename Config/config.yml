@@ -1,4 +1,35 @@
-libraries:                                      # Sollte deine Filme-Mediathek nicht "Filme" heißen, bitte entsprechend umbennen
+#v1.0                           ######################################################
+                                #                Movie Sammlungen                    #
+                                ######################################################
+                                ##                                                  ##
+                                ##       Movie Sammlung YML config fuer             ##
+                                ##              TheGeekFreaks Discord               ##
+                                ## by Sarcasm | Denny | 2022                        ##
+                                ######################################################
+                                ##                                                  ##
+                                ## Benötigt: Trak-Account, TMDB-Account, Tautuilli  ##
+                                ######################################################
+                                ##                                                  ##
+                                ## Sortierung                                       ##
+                                ## - Top                                            ##
+                                ## - - Unsere Top Filme                             ##
+                                ## - - Top Bewertet                                 ##
+                                ## - - Im Trend                                     ##
+                                ## - - Top Popularität                              ## 
+                                ## - - Filme mit Oscars                             ##
+                                ## - - Top Netflix                                  ##
+                                ## - - Top Superheldenfilme                         ##
+                                ## - - Parodiefilme                                 ##
+                                ## - - Weihnachtsfilme                              ##
+                                ##                                                  ##
+                                ## - Die Bbesten des Jahres                         ##
+                                ##                                                  ##
+                                ## - Studio Sammlungen                              ##
+                                ##                                                  ##
+                                ## Changelog ganz unten                             ##
+                                ######################################################
+                                
+libraries:    # Sollte deine Filme-Mediathek nicht "Filme" heißen, bitte entsprechend umbennen
   Filme:
     metadata_path:
       - url: https://raw.githubusercontent.com/kroeberd/plexmetaconfig/main/movie.yml
