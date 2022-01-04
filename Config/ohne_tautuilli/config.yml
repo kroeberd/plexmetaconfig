@@ -1,0 +1,51 @@
+## This file is a template remove the .template to use the file
+libraries:                                      # Library mappings must have a colon (:) placed after them
+  Filme:
+    metadata_path:
+      - file: config/movie.yml
+    operations:
+      delete_unmanaged_collections: true
+settings:                                       # Can be individually specified per library as well
+  cache: true
+  cache_expiration: 60
+  asset_directory: config/assets
+  asset_folders: true
+  asset_depth: 0
+  create_asset_folders: true
+  dimensional_asset_rename: false
+  show_missing_season_assets: false
+  sync_mode: append
+  collection_minimum: 1
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 5
+  missing_only_released: false
+  only_filter_missing: false
+  show_unmanaged: true
+  show_filtered: false
+  show_options: false
+  show_missing: true
+  show_missing_assets: true
+  save_missing: true
+  tvdb_language: ger
+  ignore_ids:
+  ignore_imdb_ids:
+  playlist_sync_to_user: all
+plex:                                           # Benötigt!
+  url: http://plex:32400
+  token: ##############################
+  timeout: 60
+  clean_bundles: true
+  empty_trash: true
+  optimize: true
+tmdb:                                           # REQUIRED for the script to run
+  apikey: ############################
+  language: de
+tautulli:                                       # Can be individually specified per library as well
+  url: http://tautuilli:8181
+  apikey: ############################
+omdb:
+  apikey: e4700a0f
+trakt:
+  client_id: ###################################################################
+  client_secret: ##############################################################
