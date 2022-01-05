@@ -42,7 +42,7 @@ templates:
         visible_shared: true
     Beste_von:
         trakt_list: https://trakt.tv/users/lish408/lists/rotten-tomatoes-best-of-<<year>>
-        sort_title: 2_Beste_von <<year>>
+        sort_title: 2_Beste_von_<<year>>
         sync_mode: sync
         summary: Beste Filme aus dem Jahr <<year>> (Bewertung durch Rotten Tomatoes)
         smart_label: audience_rating.desc
