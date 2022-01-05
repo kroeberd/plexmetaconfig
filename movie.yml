@@ -40,9 +40,9 @@ templates:
         visible_library: false
         visible_home: true
         visible_shared: true
-    Beste von:
+    Beste_von:
         trakt_list: https://trakt.tv/users/lish408/lists/rotten-tomatoes-best-of-<<year>>
-        sort_title: 2_Beste von <<year>>
+        sort_title: 2_Beste_von <<year>>
         sync_mode: sync
         summary: Beste Filme aus dem Jahr <<year>> (Bewertung durch Rotten Tomatoes)
         smart_label: audience_rating.desc
@@ -144,23 +144,23 @@ Pferdefilme: #10
  # Die besten des Jahres X #
  ###########################
   Beste von 2014:
-    template: { name: Beste von, year: 2014 }
+    template: { name: Beste_von, year: 2014 }
   Beste von 2015:
-    template: { name: Beste von, year: 2015 }
+    template: { name: Beste_von, year: 2015 }
   Beste von 2016:
-    template: { name: Beste von, year: 2016 }
+    template: { name: Beste_von, year: 2016 }
   Beste von 2017:
-    template: { name: Beste von, year: 2017 }
+    template: { name: Beste_von, year: 2017 }
   Beste von 2018:
-    template: { name: Beste von, year: 2018 }
+    template: { name: Beste_von, year: 2018 }
   Beste von 2019:
-    template: { name: Beste von, year: 2019 }
+    template: { name: Beste_von, year: 2019 }
   Beste von 2020:
-    template: { name: Beste von, year: 2020 }
+    template: { name: Beste_von, year: 2020 }
   Beste von 2021:
-    template: { name: Beste von, year: 2021 }
+    template: { name: Beste_von, year: 2021 }
   Beste von 2022:
-    template: { name: Beste von, year: 2022 }
+    template: { name: Beste_von, year: 2022 }
  ###########################
  #   Studio Sammlungen     #
  ###########################
