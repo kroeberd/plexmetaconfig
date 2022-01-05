@@ -57,7 +57,8 @@ templates:
         collection_order: alpha  
         visible_library: false
         visible_home: true
-        visible_shared: true        
+        visible_shared: true
+        
 collections:
 ###########################
 #           Top           #
@@ -138,7 +139,6 @@ Pferdefilme: #10
     sync_mode: sync
     summary: "Filme fuer Maedchen und Frauen mit dem Thema Pferde."
     url_poster: https://i.imgur.com/y1Nkdf0.jpg
-    smart_label: audience_rating.desc
 
  ###########################
  # Die besten des Jahres X #
