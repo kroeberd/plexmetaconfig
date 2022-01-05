@@ -131,6 +131,14 @@ collections:
     summary: "Weihnachtsfilm ist ein Genre, das sich um die Handlung von Weihnachten dreht."
     url_poster: https://bit.ly/PlexSeasonChristmas
     smart_label: audience_rating.desc
+Pferdefilme: #10
+    template: { name: Chart, num: a009b }
+    trakt_list:
+      - https://trakt.tv/users/sandstorms/lists/horse-movies-shows
+    sync_mode: sync
+    summary: "Filme für Mädchen und Frauen mit dem Thema Pferde."
+    url_poster: https://bit.ly/PlexSeasonChristmas
+    smart_label: audience_rating.desc
  ###########################
  # Die besten des Jahres X #
  ###########################
